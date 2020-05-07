@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -40,7 +40,7 @@ public final class Constants {
 
     }
 
-    public static class DriveConstants {
+    public static final class DriveConstants {
         public static int frontLeftMotorPin = 4;
         public static int frontRightMotorPin = 5;
         public static int rearLeftMotorPin = 6;
@@ -64,6 +64,25 @@ public final class Constants {
         public static int rightWheelEncoder_B = 7;
         public static int leftWheelEncoder_A = 8;
         public static int leftWheelEncoder_B = 9;
+
+        // The Robot Characterization Toolsuite provides a convenient tool for obtaining these
+        // values for your robot.
+        public static final double ksVolts = 0.22;
+        public static final double kvVoltSecondsPerMeter = 1.98;
+        public static final double kaVoltSecondsSquaredPerMeter = 0.2;
+
+        // Example value only - as above, this must be tuned for your drive!
+        public static final double kPDriveVel = 8.5;
+        public static final double kTrackwidthMeters = 0.69;
+        public static final DifferentialDriveKinematics kDriveKinematics =
+            new DifferentialDriveKinematics(kTrackwidthMeters);
+
+        public static final double kMaxSpeedMetersPerSecond = 3;
+        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
+
+        // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
+        public static final double kRamseteB = 2;
+        public static final double kRamseteZeta = 0.7;
 
     }
 
