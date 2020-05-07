@@ -37,7 +37,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final Encoder rightWheelEncoder = new Encoder(DriveConstants.rightWheelEncoder_A,
       DriveConstants.rightWheelEncoder_B, false, EncodingType.k4X);
   private final Encoder leftWheelEncoder = new Encoder(DriveConstants.leftWheelEncoder_A,
-      DriveConstants.leftWheelEncoder_B, false, EncodingType.k4x);
+      DriveConstants.leftWheelEncoder_B, false, EncodingType.k4X);
 
   private final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
