@@ -26,7 +26,13 @@ import frc.robot.subsystems.DriveSubsystem;
  * Add your docs here.
  */
 public class SneakyTrajectory {
-    public Trajectory centerRight6Cell[];
+    public Trajectory centerRight6Cell_0,centerRight6Cell_1;//yazdigimiz otonomlari burada tanimlariz
+    
+    public Trajectory center6Cell_0,center6Cell_1;
+    public Trajectory centerLeft6Cell_0,centerLeft6Cell_1;
+    public Trajectory right3Cell_0,right3Cell_1;
+    public Trajectory middle3Cell_0,middle3Cell_1;
+    
     private DriveSubsystem m_drive;
 
     public SneakyTrajectory(DriveSubsystem drive)
@@ -59,19 +65,50 @@ public class SneakyTrajectory {
 
         configBackward.setReversed(true);
 
-        centerRight6Cell[0] = TrajectoryGenerator.generateTrajectory(
+        centerRight6Cell_0 = TrajectoryGenerator.generateTrajectory(
             List.of(
                 new Pose2d(12.80, 5.79, new Rotation2d(0)),
                 new Pose2d(9.75, 7.54, new Rotation2d(0)),
                 new Pose2d(7.92, 7.54, new Rotation2d(0))),
         configBackward);
 
-        centerRight6Cell[1] = TrajectoryGenerator.generateTrajectory(
+        centerRight6Cell_1 = TrajectoryGenerator.generateTrajectory(
             List.of(
                 new Pose2d(7.92, 7.54, new Rotation2d(0)),
                 new Pose2d(10.97, 5.79, new Rotation2d(0)),
                 new Pose2d(12.80, 5.79, new Rotation2d(0))),
         configForward);
+
+        right3Cell_0 = TrajectoryGenerator.generateTrajectory(
+            List.of(
+                new Pose2d(7.62,7.62, new Rotation2d(0)),
+                new Pose2d(10.6, 7.3, new Rotation2d(0)),
+                new Pose2d(12.8, 7.0, new Rotation2d(0))),
+        configBackward);
+
+        centerLeft6Cell_0 = TrajectoryGenerator.generateTrajectory(
+            List.of(
+                new Pose2d(7.62, 7.62, new Rotation2d(0)),
+                new Pose2d(9.1, 7.62, new Rotation2d(0)),
+                new Pose2d(12.1, 6.09, new Rotation2d(0))),
+        configBackward);
+
+        middle3Cell_0 = TrajectoryGenerator.generateTrajectory(
+            List.of(
+                new Pose2d(12.1, 7.62, new Rotation2d(0)),
+                new Pose2d(12.8,7.62, new Rotation2d(0)),
+                new Pose2d(13.7, 6.09, new Rotation2d(0))),
+        configBackward);
+
+        right3Cell_0 = TrajectoryGenerator.generateTrajectory(
+            List.of(
+                new Pose2d(12.1, 7.62, new Rotation2d(0)),
+                new Pose2d(9.75, 7.3, new Rotation2d(0)),
+                new Pose2d(8.5, 6.7, new Rotation2d(0))),
+        configBackward);
+
+        
+
 
     }
 

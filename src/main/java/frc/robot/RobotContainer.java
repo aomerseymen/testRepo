@@ -26,6 +26,7 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.JoystickConstants;
 import frc.robot.commands.*;
 import frc.robot.commands.autonomous.AutonomousCommand;
+import frc.robot.commands.autonomous.CenterRight6Cell;
 import frc.robot.commands.autonomous.LeftAuto;
 import frc.robot.commands.autonomous.MiddleAuto;
 import frc.robot.commands.autonomous.RightAuto;
@@ -53,6 +54,7 @@ public class RobotContainer {
   private final LiftSubsystem m_lift = new LiftSubsystem();
   public final ArmSubsystem m_arm = new ArmSubsystem();
   private final HopperSubsystem m_hopper = new HopperSubsystem();
+  private final SneakyTrajectory m_sneakyTrajectory = new SneakyTrajectory(m_drive);
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
@@ -189,6 +191,8 @@ public class RobotContainer {
       return new RightAuto();
     case 4:
       return trajectoryCommand();
+    case 5:
+    return new CenterRight6Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     default:
       return null;
 
