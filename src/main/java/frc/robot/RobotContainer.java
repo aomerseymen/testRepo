@@ -26,10 +26,11 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.JoystickConstants;
 import frc.robot.commands.*;
 import frc.robot.commands.autonomous.AutonomousCommand;
+import frc.robot.commands.autonomous.Center6Cell;
+import frc.robot.commands.autonomous.CenterLeft6Cell;
 import frc.robot.commands.autonomous.CenterRight6Cell;
-import frc.robot.commands.autonomous.LeftAuto;
-import frc.robot.commands.autonomous.MiddleAuto;
-import frc.robot.commands.autonomous.RightAuto;
+import frc.robot.commands.autonomous.Middle3Cell;
+import frc.robot.commands.autonomous.Right3Cell;
 import frc.robot.commands.RunHopper;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -184,14 +185,16 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     switch (auto) {
     case 1:
-      return new MiddleAuto();
+      return new Center6Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     case 2:
-      return new LeftAuto();
+      return new CenterLeft6Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     case 3:
-      return new RightAuto();
+      return new Right3Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     case 4:
-      return trajectoryCommand();
+      return new Middle3Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     case 5:
+      return trajectoryCommand();
+    case 6:
     return new CenterRight6Cell(m_sneakyTrajectory, m_shooter, m_intake, m_hopper, m_drive);
     default:
       return null;
